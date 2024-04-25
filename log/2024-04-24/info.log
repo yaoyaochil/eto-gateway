@@ -1,0 +1,127 @@
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:12:20.544	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:12:20.591	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:12:20.592	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:12:20.592	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:14:10.174	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:14:10.218	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:14:10.219	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 00:14:10.220	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:54:13.047	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:54:13.115	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:54:13.116	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:54:13.117	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:55:03.207	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:55:03.263	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:55:03.264	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:55:03.265	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:57:28.006	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:57:28.054	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:57:28.054	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 08:57:28.056	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:09:20.658	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:09:20.713	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:09:20.715	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:09:20.716	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:00.942	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:01.004	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:01.006	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:01.006	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:43.170	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:44.407	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:44.410	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 09:10:44.412	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 15:37:00.582	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 15:37:02.005	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 15:37:02.007	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 15:37:02.008	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:22:50.845	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:22:50.900	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:22:50.901	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:22:50.902	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:24.738	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:24.811	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:24.812	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:24.812	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:48.290	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:48.341	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:48.341	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:23:48.342	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:25:52.896	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:25:52.948	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:25:52.949	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:25:52.950	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:26:41.559	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:26:41.612	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:26:41.613	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:26:41.614	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:16.889	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:16.939	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:16.940	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:16.941	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:54.686	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:54.732	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:54.733	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:27:54.734	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:28:27.918	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:28:27.974	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:28:27.975	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:28:27.975	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:29:00.050	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:29:00.092	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:29:00.093	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:29:00.094	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:30:23.984	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:30:24.040	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:30:24.041	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:30:24.042	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:34:44.025	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:34:44.080	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:34:44.081	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:34:44.082	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:11.708	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:12.989	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:12.991	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:12.992	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:38.619	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:38.677	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:38.678	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:36:38.679	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:23.562	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:23.565	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:23.566	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:37.193	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:37.239	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:37.240	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:37:37.241	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:04.717	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:06.118	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:06.120	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:06.121	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:48.412	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:48.472	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:48.473	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:38:48.474	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:40:28.068	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:40:28.122	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:40:28.123	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:40:28.124	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:16.075	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:16.131	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:16.132	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:16.133	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:44.279	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:44.329	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:44.330	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:47:44.331	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:48:27.214	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:48:27.269	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:48:27.270	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:48:27.271	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:49:25.976	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:49:26.031	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:49:26.032	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:49:26.033	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:51:16.750	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:51:16.809	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/initialize/gorm.go:27	register table success
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:51:16.810	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/source/init_db.go:21	系统用户admin已存在 本次无需初始化用户!
+[github.com/yaoyaochil/dnf_client_gateway]2024/04/24 - 17:51:16.811	[34minfo[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:34	pal_server run success on 	{"address": ":8800"}
