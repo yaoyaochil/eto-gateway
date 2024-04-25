@@ -44,4 +44,7 @@ QQ群： 575053531
 
 
 ## 如果你觉得这个项目对你有帮助，你可以请我喝杯咖啡：
-[![Buy me a coffee](resource/byte_money.jpg)](resource/byte_money.jpg)
+<p float="left">
+    <img src="resource/wechat_pay.JPG" width="200" style="margin-right: 50px;" />
+    <img src="resource/aili_pay.JPG" width="200" />
+</p>
