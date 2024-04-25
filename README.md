@@ -37,7 +37,11 @@ curl -X POST http://localhost:8080/login -d '{"accountname":"admin","password":"
 
 
 
+## 交流群
+```shell
+QQ群： 575053531
+```
 
 
-如果你觉得这个项目对你有帮助，你可以请我喝杯咖啡：
+## 如果你觉得这个项目对你有帮助，你可以请我喝杯咖啡：
 [![Buy me a coffee](resource/byte_money.jpg)](resource/byte_money.jpg)
