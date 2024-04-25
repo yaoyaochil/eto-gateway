@@ -1,12 +1,12 @@
 system:
   addr: 8800
 mysql_d_taiwan:
-  path: 42.51.38.227
+  path: 127.0.0.1
   port: "3306"
   config: charset=utf8&parseTime=True&loc=Local
   db-name: d_taiwan
-  username: l4c
-  password: "l4ctest1999"
+  username: root
+  password: ""
   prefix: ""
   singular: false
   engine: ""
@@ -17,11 +17,11 @@ mysql_d_taiwan:
 
 mysql_system:
   path: 127.0.0.1
-  port: "33061"
+  port: "3306"
   config: charset=utf8mb4&parseTime=True&loc=Local
   db-name: gateway_system
   username: root
-  password: "gateway"
+  password: ""
   prefix: ""
   singular: false
   engine: ""
