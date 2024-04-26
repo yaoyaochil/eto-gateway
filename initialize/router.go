@@ -19,11 +19,14 @@ func Routers() *gin.Engine {
 	//systemRouter := router.RouterGroupApp.System
 	systemRouter := router.RouterGroupApp.System
 	d_taiwan_account_router := router.RouterGroupApp.DTaiwanAccount
+	base_router := router.RouterGroupApp.Base
 
 	// 方便统一添加路由组前缀 多服务器上线使用
 	PrivateGroup := Router.Group("")
 	PrivateGroup.Use(middleware.JWTAuth())
 	PublicGroup := Router.Group("")
+
+	BasePubulicGroup := Router.Group("base") // 基础功能路由 不做鉴权
 	{
 		// 健康监测
 		PublicGroup.GET("/health", func(c *gin.Context) {
@@ -36,6 +39,7 @@ func Routers() *gin.Engine {
 		systemRouter.SysJwtRouter.InitJwtRouter(PublicGroup)            // 注册jwt相关路由
 
 		// 下面是游戏相关的路由
+		base_router.DTaiwanAccountRouter.InitDTaiwanAccountRouter(BasePubulicGroup) // 注册游戏登陆,注册路由
 		d_taiwan_account_router.AccountRouter.InitDTaiwanAccountRouter(PublicGroup) // 注册d_taiwan账号管理
 	}
 	{

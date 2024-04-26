@@ -13,3 +13,9 @@ func (a *AccountService) GetAccount(body model.Account) (data model.Account, err
 	err = global.GatewayDBs["d_taiwan"].Where("accountname = ?", body.Accountname).First(&data).Error
 	return data, err
 }
+
+// CreateAccount 创建账号
+func (a *AccountService) CreateAccount(body model.Account) (data model.Account, err error) {
+	err = global.GatewayDBs["d_taiwan"].Create(&body).Error
+	return body, err
+}

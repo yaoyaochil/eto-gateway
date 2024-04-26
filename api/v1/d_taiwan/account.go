@@ -56,3 +56,50 @@ func (a *AccountApi) DnfLogin(c *gin.Context) {
 	}
 	response.OkWithLogin(base64Content, c)
 }
+
+/**
+ * @Description: CreateAccount 创建账号
+ * @receiver a AccountApi
+ * @param c
+ */
+func (a *AccountApi) CreateAccount(c *gin.Context) {
+	var body model.Account
+	_ = c.ShouldBindJSON(&body)
+	_, err := accountService.GetAccount(body)
+	if err == nil {
+		response.FailWithMessage("账号已存在", c)
+		c.Abort()
+		return
+	}
+	_, err = accountService.CreateAccount(body)
+	if err != nil {
+		response.FailWithMessage("创建失败", c)
+		c.Abort()
+		return
+	}
+	response.OkWithMessage("创建成功", c)
+}
+
+/**
+ * @Description: Register 注册
+ * @receiver a AccountApi
+ * @param c
+ */
+func (a *AccountApi) Register(c *gin.Context) {
+	var body model.Account
+	_ = c.ShouldBindJSON(&body)
+	_, err := accountService.GetAccount(body)
+	if err == nil {
+		response.FailWithMessage("账号已存在", c)
+		c.Abort()
+		return
+	}
+	body.Password = utils.CalculateMD5Hash(body.Password)
+	_, err = accountService.CreateAccount(body)
+	if err != nil {
+		response.FailWithMessage("注册失败", c)
+		c.Abort()
+		return
+	}
+	response.OkWithMessage("注册成功", c)
+}
