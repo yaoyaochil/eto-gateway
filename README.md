@@ -33,6 +33,16 @@ curl -X POST http://localhost:8080/login -d '{"accountname":"admin","password":"
     "msg": "登录成功"
 }
 ```
+
+```shell
+#注意 新版本登陆游戏和注册游戏的前置路由增加/base/ 例如登陆游戏的路由为 /d_taiwan/dnfLogin  新版本为 /base/d_taiwan/dnfLogin
+
+# 完整的登陆游戏的路由为 /base/d_taiwan/dnfLogin
+# 完整的注册游戏的路由为 /base/d_taiwan/Register
+
+# 传递参数不变
+```
+
 ##### ![img.png](resource/img.png)
 
 
