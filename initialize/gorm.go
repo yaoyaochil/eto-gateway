@@ -15,6 +15,7 @@ func Gorm() map[string]*gorm.DB {
 
 // RegisterDBTables 注册数据库表专用
 func RegisterDBTables(db *gorm.DB) {
+	db = global.GatewayDBs["system"]
 	err := db.AutoMigrate(
 		// 系统模块表
 		system.SysUser{},

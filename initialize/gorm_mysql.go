@@ -30,6 +30,24 @@ func GormMysql() map[string]*gorm.DB {
 		}
 	}
 
+	// Initialize GormMysqlTaiwanLogin
+	m = global.GatewayConf.GormMysqlTaiwanLogin
+	if m.Dbname != "" {
+		db := initializeDB(m)
+		if db != nil {
+			dbs["taiwan_login"] = db
+		}
+	}
+
+	// Initialize GormMysqlTaiwanBilling
+	m = global.GatewayConf.GormMysqlTaiwanBilling
+	if m.Dbname != "" {
+		db := initializeDB(m)
+		if db != nil {
+			dbs["taiwan_billing"] = db
+		}
+	}
+
 	return dbs
 }
 

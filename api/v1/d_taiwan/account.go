@@ -4,6 +4,7 @@ import (
 	"gateway/model/common/response"
 	model "gateway/model/dnf/d_taiwan"
 	"gateway/service"
+	"gateway/service/d_taiwan"
 	"gateway/utils"
 	"github.com/gin-gonic/gin"
 )
@@ -57,21 +58,27 @@ func (a *AccountApi) DnfLogin(c *gin.Context) {
 	response.OkWithLogin(base64Content, c)
 }
 
+type CreateAccountRequest struct {
+	CashCera      int32 `json:"cashCera"`      // 0
+	CashCeraPoint int32 `json:"cashCeraPoint"` // 0
+	model.Account
+}
+
 /**
  * @Description: CreateAccount 创建账号
  * @receiver a AccountApi
  * @param c
  */
 func (a *AccountApi) CreateAccount(c *gin.Context) {
-	var body model.Account
+	var body CreateAccountRequest
 	_ = c.ShouldBindJSON(&body)
-	_, err := accountService.GetAccount(body)
+	_, err := accountService.GetAccount(body.Account)
 	if err == nil {
 		response.FailWithMessage("账号已存在", c)
 		c.Abort()
 		return
 	}
-	_, err = accountService.CreateAccount(body)
+	_, err = accountService.CreateAccount(d_taiwan.CreateAccountRequest(body))
 	if err != nil {
 		response.FailWithMessage("创建失败", c)
 		c.Abort()
@@ -86,16 +93,16 @@ func (a *AccountApi) CreateAccount(c *gin.Context) {
  * @param c
  */
 func (a *AccountApi) Register(c *gin.Context) {
-	var body model.Account
+	var body CreateAccountRequest
 	_ = c.ShouldBindJSON(&body)
-	_, err := accountService.GetAccount(body)
+	_, err := accountService.GetAccount(body.Account)
 	if err == nil {
 		response.FailWithMessage("账号已存在", c)
 		c.Abort()
 		return
 	}
 	body.Password = utils.CalculateMD5Hash(body.Password)
-	_, err = accountService.CreateAccount(body)
+	_, err = accountService.CreateAccount(d_taiwan.CreateAccountRequest(body))
 	if err != nil {
 		response.FailWithMessage("注册失败", c)
 		c.Abort()
