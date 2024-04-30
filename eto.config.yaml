@@ -1,7 +1,7 @@
 system:
   addr: 8800
 mysql_d_taiwan:
-  path: 127.0.0.1
+  path: 172.20.0.33
   port: "3306"
   config: charset=utf8&parseTime=True&loc=Local
   db-name: d_taiwan
@@ -15,9 +15,41 @@ mysql_d_taiwan:
   log-mode: error
   log-zap: false
 
-mysql_system:
-  path: 127.0.0.1
+
+mysql_taiwan_login:
+  path: 172.20.0.33
   port: "3306"
+  config: charset=utf8&parseTime=True&loc=Local
+  db-name: taiwan_login
+  username: root
+  password: ""
+  prefix: ""
+  singular: false
+  engine: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: error
+  log-zap: false
+
+
+mysql_taiwan_billing:
+  path: 172.20.0.33
+  port: "3306"
+  config: charset=utf8&parseTime=True&loc=Local
+  db-name: taiwan_billing
+  username: root
+  password: ""
+  prefix: ""
+  singular: false
+  engine: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: error
+  log-zap: false
+
+mysql_system:
+  path: 172.20.0.33
+  port: "33061"
   config: charset=utf8mb4&parseTime=True&loc=Local
   db-name: gateway_system
   username: root
@@ -46,4 +78,4 @@ jwt:
   signing-key: 53fff5b5-4d84-464a-bbe1-d955cd2cd714
   expires-time: 7d
   buffer-time: 1d
-  issuer: palserveradmin
+  issuer: etogateway
