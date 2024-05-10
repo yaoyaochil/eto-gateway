@@ -11,8 +11,7 @@ type Account struct {
 	UID         int32  `gorm:"column:UID;primaryKey;autoIncrement:true" json:"UID"`
 	Accountname string `gorm:"column:accountname;not null" json:"accountname"`
 	Password    string `gorm:"column:password;not null" json:"password"`
-	Qq          string `gorm:"column:qq" json:"qq"`
-	VIP         string `gorm:"column:VIP;not null" json:"VIP"`
+	VIP         int32  `gorm:"column:VIP;default:0" json:"VIP"`
 }
 
 // TableName Account's table name

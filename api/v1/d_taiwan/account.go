@@ -1,6 +1,7 @@
 package d_taiwan
 
 import (
+	"gateway/model/common/request/d_taiwan_account"
 	"gateway/model/common/response"
 	model "gateway/model/dnf/d_taiwan"
 	"gateway/service"
@@ -109,4 +110,26 @@ func (a *AccountApi) Register(c *gin.Context) {
 		return
 	}
 	response.OkWithMessage("注册成功", c)
+}
+
+/**
+ * @Description: GetAccountList 获取账号列表
+ * @receiver a AccountApi
+ * @param c
+ */
+func (a *AccountApi) GetAccountList(c *gin.Context) {
+	var body d_taiwan_account.AccountRequest
+	_ = c.ShouldBindJSON(&body)
+	data, total, err := accountService.GetAccountList(body)
+	if err != nil {
+		response.FailWithMessage("获取失败", c)
+		c.Abort()
+		return
+	}
+	response.OkWithDetailed(response.PageResult{
+		List:     data,
+		Total:    total,
+		Page:     body.Page,
+		PageSize: body.PageSize,
+	}, "获取成功", c)
 }

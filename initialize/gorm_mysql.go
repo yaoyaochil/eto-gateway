@@ -48,6 +48,24 @@ func GormMysql() map[string]*gorm.DB {
 		}
 	}
 
+	// Initialize GormMysqlTaiwanCain
+	m = global.GatewayConf.GormMysqlTaiwanCain
+	if m.Dbname != "" {
+		db := initializeDB(m)
+		if db != nil {
+			dbs["taiwan_cain"] = db
+		}
+	}
+
+	// Initialize GormMysqlTaiwanCain2ND
+	m = global.GatewayConf.GormMysqlTaiwanCain2ND
+	if m.Dbname != "" {
+		db := initializeDB(m)
+		if db != nil {
+			dbs["taiwan_cain_2nd"] = db
+		}
+	}
+
 	return dbs
 }
 

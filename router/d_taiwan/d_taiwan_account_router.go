@@ -13,5 +13,6 @@ func (s *AccountRouter) InitDTaiwanAccountRouter(RouterGroup *gin.RouterGroup) {
 	Router := RouterGroup.Group("/d_taiwan")
 	{
 		Router.POST("getAccount", dTaiwanApi.GetAccount)
+		Router.POST("getAccountList", dTaiwanApi.GetAccountList)
 	}
 }

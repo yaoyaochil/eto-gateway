@@ -1,6 +1,0 @@
-[github.com/yaoyaochil/dnf_client_gateway]2024/04/25 - 13:01:15.392	[31merror[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:39	accept tcp [::]:8800: use of closed network connection
-[github.com/yaoyaochil/dnf_client_gateway]2024/04/25 - 13:03:37.161	[31merror[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:39	accept tcp [::]:8800: use of closed network connection
-[github.com/yaoyaochil/dnf_client_gateway]2024/04/25 - 13:04:47.568	[31merror[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:39	accept tcp [::]:8800: use of closed network connection
-[github.com/yaoyaochil/dnf_client_gateway]2024/04/25 - 13:08:00.905	[31merror[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:39	accept tcp [::]:8800: use of closed network connection
-[github.com/yaoyaochil/dnf_client_gateway]2024/04/25 - 13:08:12.180	[31merror[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/utils/private.go:42	unsupported key type	{"type": "PRIVATE KEY"}
-[github.com/yaoyaochil/dnf_client_gateway]2024/04/25 - 13:08:29.506	[31merror[0m	/Users/tim/Documents/Dev/Golang/dnf/gateway/core/server.go:39	accept tcp [::]:8800: use of closed network connection
