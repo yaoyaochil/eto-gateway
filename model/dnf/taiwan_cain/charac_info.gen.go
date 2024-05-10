@@ -10,11 +10,6 @@ import (
 
 const TableNameCharacInfo = "charac_info"
 
-type CharacInfoV2 struct {
-	CharacInfo
-	ConvertedCharacName string `gorm:"column:converted_charac_name" json:"converted_charac_name"`
-}
-
 // CharacInfo mapped from table <charac_info>
 type CharacInfo struct {
 	MID                 int32     `gorm:"column:m_id;not null" json:"m_id"`

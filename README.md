@@ -8,6 +8,18 @@
 
 **如果：** 使用docker-compose无需单独运行
 
+## 项目介绍
+ETO·网关服务是一个基于gin框架的网关服务，主要用于对接游戏服务，提供统一的接口，方便对接多个游戏服务。
+
+## 项目特点
+- 支持邮件单独发送 无需配置物品占用
+- 邮件直接发送金币
+- Frida动态代码注入
+- 快速对接游戏服务
+- 超快速的响应速度,对比php的网关服务，响应速度提升了10倍
+- 支持多平台快速部署
+- 占用资源少，运行稳定,支持高并发
+
 
 ```shell
 # 配置文件 将eto.config.yaml 重命名为config.yaml 并修改配置文件为你的配置
@@ -47,7 +59,7 @@ curl -X POST http://localhost:8080/login -d '{"accountname":"admin","password":"
 # 传递参数不变
 ```
 
-##### ![img.png](resource/img.png)
+##### ![img.png](https://github.com/yaoyaochil/eto-gateway/assets/49603204/b97408e8-8b63-4db7-b47b-343ce29b2ece)
 
 
 
