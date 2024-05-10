@@ -4,6 +4,10 @@
 [![Go](https://img.shields.io/badge/Go-1.22.2-blue)](https://golang.dev/)
 
 
+**注意：** 本项目需要搭配 [eto-gateway-admin](https://github.com/yaoyaochil/eto-gateway-admin) 前端项目使用
+
+**如果：** 使用docker-compose无需单独运行
+
 
 ```shell
 # 配置文件 将eto.config.yaml 重命名为config.yaml 并修改配置文件为你的配置
