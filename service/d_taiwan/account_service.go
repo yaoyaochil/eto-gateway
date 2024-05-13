@@ -292,3 +292,9 @@ func (a *AccountService) GetAccountList(info d_taiwan_account.AccountRequest) (l
 
 	return list, total, err
 }
+
+// ResetLimitCreateCharacter 重置角色创建限制
+func (a *AccountService) ResetLimitCreateCharacter(MID int32) (err error) {
+	err = global.GatewayDBs["d_taiwan"].Model(&dtaiwanmodel.LimitCreateCharacter{}).Where("m_id = ?", MID).Update("count", 0).Error
+	return err
+}

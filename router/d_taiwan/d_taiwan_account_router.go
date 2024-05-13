@@ -14,5 +14,6 @@ func (s *AccountRouter) InitDTaiwanAccountRouter(RouterGroup *gin.RouterGroup) {
 	{
 		Router.POST("getAccount", dTaiwanApi.GetAccount)
 		Router.POST("getAccountList", dTaiwanApi.GetAccountList)
+		Router.POST("resetLimitCreateCharacter", dTaiwanApi.ResetLimitCreateCharacter)
 	}
 }

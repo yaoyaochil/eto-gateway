@@ -133,3 +133,16 @@ func (a *AccountApi) GetAccountList(c *gin.Context) {
 		PageSize: body.PageSize,
 	}, "获取成功", c)
 }
+
+// ResetLimitCreateCharacter 重置创建角色限制
+func (a *AccountApi) ResetLimitCreateCharacter(c *gin.Context) {
+	var body model.Account
+	_ = c.ShouldBindJSON(&body)
+	err := accountService.ResetLimitCreateCharacter(body.UID)
+	if err != nil {
+		response.FailWithMessage("重置失败", c)
+		c.Abort()
+		return
+	}
+	response.OkWithMessage("重置成功", c)
+}
