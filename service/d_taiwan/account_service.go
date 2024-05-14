@@ -155,43 +155,39 @@ func (a *AccountService) CreateAccount(body CreateAccountRequest) (data dtaiwanm
 	}()
 
 	// 如果有充值 则创建充值记录 点券
-	if body.CashCera > 0 {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			var memberCash taiwanbilling.CashCera
-			memberCash = taiwanbilling.CashCera{
-				Account: fmt.Sprintf("%d", body.UID),
-				Cera:    body.CashCera,
-				ModTran: 0,
-				ModDate: time.Now(),
-				RegDate: time.Now(),
-			}
-			err = global.GatewayDBs["taiwan_billing"].Create(&memberCash).Error
-			if err != nil {
-				errChan <- err
-			}
-		}()
-	}
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		var memberCash taiwanbilling.CashCera
+		memberCash = taiwanbilling.CashCera{
+			Account: fmt.Sprintf("%d", body.UID),
+			Cera:    body.CashCera,
+			ModTran: 0,
+			ModDate: time.Now(),
+			RegDate: time.Now(),
+		}
+		err = global.GatewayDBs["taiwan_billing"].Create(&memberCash).Error
+		if err != nil {
+			errChan <- err
+		}
+	}()
 
 	// 如果有充值 则创建充值记录 代币
-	if body.CashCeraPoint > 0 {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			var memberCashPoint taiwanbilling.CashCeraPoint
-			memberCashPoint = taiwanbilling.CashCeraPoint{
-				Account:   fmt.Sprintf("%d", body.UID),
-				CeraPoint: body.CashCeraPoint,
-				ModDate:   time.Now(),
-				RegDate:   time.Now(),
-			}
-			err = global.GatewayDBs["taiwan_billing"].Create(&memberCashPoint).Error
-			if err != nil {
-				errChan <- err
-			}
-		}()
-	}
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		var memberCashPoint taiwanbilling.CashCeraPoint
+		memberCashPoint = taiwanbilling.CashCeraPoint{
+			Account:   fmt.Sprintf("%d", body.UID),
+			CeraPoint: body.CashCeraPoint,
+			ModDate:   time.Now(),
+			RegDate:   time.Now(),
+		}
+		err = global.GatewayDBs["taiwan_billing"].Create(&memberCashPoint).Error
+		if err != nil {
+			errChan <- err
+		}
+	}()
 
 	// Wait for all goroutines to finish
 	wg.Wait()

@@ -6,8 +6,6 @@ import (
 	"gateway/initialize"
 	"gateway/service/system"
 	"time"
-
-	"go.uber.org/zap"
 )
 
 type server interface {
@@ -31,10 +29,8 @@ func RunWindowsServer() {
 	// 保证文本顺序输出
 	// In order to ensure that the text order output can be deleted
 	time.Sleep(10 * time.Microsecond)
-	global.GatewayLog.Info("pal_server run success on ", zap.String("address", address))
 
-	fmt.Printf(`
-    ETO网关服务启动成功
-	`, address)
+	fmt.Printf(`ETO网关服务启动成功%s 
+`, address)
 	global.GatewayLog.Error(s.ListenAndServe().Error())
 }
