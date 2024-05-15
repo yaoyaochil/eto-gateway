@@ -6,6 +6,7 @@ import (
 	"gateway/api/v1/taiwan_billing"
 	"gateway/api/v1/taiwan_cain"
 	"gateway/api/v1/taiwan_cain_2nd"
+	"gateway/api/v1/websocket"
 )
 
 type ApiGroup struct {
@@ -14,6 +15,7 @@ type ApiGroup struct {
 	TaiwanBillingApiGroup taiwan_billing.ApiGroup  // taiwan_billing 模块
 	TaiwanCainApiGroup    taiwan_cain.ApiGroup     // taiwan_cain 模块
 	TaiwanCain2NDApiGroup taiwan_cain_2nd.ApiGroup // taiwan_cain_2nd 模块
+	WebsocketApiGroup     websocket.ApiGroup       // websocket 模块
 }
 
 var ApiGroupApp = new(ApiGroup)

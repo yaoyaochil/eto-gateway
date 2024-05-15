@@ -4,8 +4,9 @@ import (
 	"gateway/middleware"
 	"gateway/model/common/response"
 	"gateway/router"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func Routers() *gin.Engine {
@@ -23,6 +24,7 @@ func Routers() *gin.Engine {
 	taiwan_cain_router := router.RouterGroupApp.TaiwanCain
 	taiwan_cain_2nd_router := router.RouterGroupApp.TaiwanCain2Nd
 	base_router := router.RouterGroupApp.Base
+	websocket_router := router.RouterGroupApp.Websocket
 
 	// 方便统一添加路由组前缀 多服务器上线使用
 	PrivateGroup := Router.Group("")
@@ -40,6 +42,9 @@ func Routers() *gin.Engine {
 		// 方便统一添加路由组前缀 多服务器上线使用
 		base_router.SystemBaseRouter.InitSystemBaseRouter(BasePublicGroup) // 注册基础功能路由 不做鉴权
 		systemRouter.SysJwtRouter.InitJwtRouter(PublicGroup)               // 注册jwt相关路由
+
+		// websocket类型路由
+		websocket_router.RouterServiceControl.InitServiceControlRouter(PublicGroup) // 注册websocket相关路由
 
 		// 下面是游戏相关的路由
 		base_router.DTaiwanAccountRouter.InitDTaiwanAccountRouter(BasePublicGroup)  // 注册游戏登陆,注册路由
