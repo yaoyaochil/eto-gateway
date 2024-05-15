@@ -1,12 +1,42 @@
 system:
   addr: 8800
 mysql_d_taiwan:
-  path: 172.20.0.33
-  port: "3306"
-  config: charset=utf8&parseTime=True&loc=Local
+  path: 127.0.0.1
+  port: "33062"
+  config: charset=latin1&parseTime=True&loc=Local
   db-name: d_taiwan
   username: root
-  password: ""
+  password: "88888888"
+  prefix: ""
+  singular: false
+  engine: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: error
+  log-zap: false
+
+mysql_taiwan_cain:
+  path: 127.0.0.1
+  port: "33062"
+  config: charset=latin1&parseTime=True&loc=Local
+  db-name: taiwan_cain
+  username: root
+  password: "88888888"
+  prefix: ""
+  singular: false
+  engine: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: error
+  log-zap: false
+
+mysql_taiwan_cain_2nd:
+  path: 127.0.0.1
+  port: "33062"
+  config: charset=latin1&parseTime=True&loc=Local
+  db-name: taiwan_cain_2nd
+  username: root
+  password: "88888888"
   prefix: ""
   singular: false
   engine: ""
@@ -17,12 +47,12 @@ mysql_d_taiwan:
 
 
 mysql_taiwan_login:
-  path: 172.20.0.33
-  port: "3306"
+  path: 127.0.0.1
+  port: "33062"
   config: charset=utf8&parseTime=True&loc=Local
   db-name: taiwan_login
   username: root
-  password: ""
+  password: "88888888"
   prefix: ""
   singular: false
   engine: ""
@@ -33,12 +63,12 @@ mysql_taiwan_login:
 
 
 mysql_taiwan_billing:
-  path: 172.20.0.33
-  port: "3306"
+  path: 127.0.0.1
+  port: "33062"
   config: charset=utf8&parseTime=True&loc=Local
   db-name: taiwan_billing
   username: root
-  password: ""
+  password: "88888888"
   prefix: ""
   singular: false
   engine: ""
@@ -48,12 +78,12 @@ mysql_taiwan_billing:
   log-zap: false
 
 mysql_system:
-  path: 172.20.0.33
-  port: "33061"
+  path: 127.0.0.1
+  port: "33062"
   config: charset=utf8mb4&parseTime=True&loc=Local
-  db-name: gateway_system
+  db-name: eto_system
   username: root
-  password: ""
+  password: "88888888"
   prefix: ""
   singular: false
   engine: ""
@@ -78,4 +108,4 @@ jwt:
   signing-key: 53fff5b5-4d84-464a-bbe1-d955cd2cd714
   expires-time: 7d
   buffer-time: 1d
-  issuer: etogateway
+  issuer: eto-system-server
