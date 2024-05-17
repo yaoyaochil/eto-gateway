@@ -21,9 +21,10 @@ ETO·网关服务是一个基于gin框架的网关服务，主要用于对接游
 - 占用资源少，运行稳定,支持高并发
 
 ## 项目截图
-![img.png](https://github.com/yaoyaochil/eto-gateway/assets/49603204/9f024abf-2e11-496e-a2f8-ba59d42ff8aa)
+<img width="1919" style="border-radius:8px;margin-bottom:10px" alt="image" src="https://github.com/yaoyaochil/eto-gateway/assets/49603204/9f024abf-2e11-496e-a2f8-ba59d42ff8a">
 <img width="1919" style="border-radius:8px;margin-bottom:10px" alt="image" src="https://github.com/yaoyaochil/eto-gateway-admin/assets/49603204/26875c19-aa15-42bf-82aa-4e98c6b4f83b">
 <img width="1919" style="border-radius:8px;margin-bottom:10px" alt="image" src="https://github.com/yaoyaochil/eto-gateway-admin/assets/49603204/8cd61bad-12fe-4698-a18e-5e0c11a337de">
+<img width="1919" style="border-radius:8px;margin-bottom:10px" alt="image" src="https://github.com/yaoyaochil/eto-gateway/assets/49603204/fc2b8f2a-8f33-489e-bbf4-ca16bef4aa1d">
 
 
 ```shell
