@@ -3,6 +3,7 @@ package router
 import (
 	"gateway/router/base"
 	"gateway/router/d_taiwan"
+	gamecontrol "gateway/router/game_control"
 	"gateway/router/system"
 	"gateway/router/taiwan_billing"
 	"gateway/router/taiwan_cain"
@@ -18,6 +19,7 @@ type RouterGroup struct {
 	TaiwanCain2Nd  taiwan_cain_2nd.RouterGroup
 	Base           base.RouterGroup
 	Websocket      websocket.RouterGroup
+	GameControl    gamecontrol.RouterGroup
 }
 
 var RouterGroupApp = new(RouterGroup)

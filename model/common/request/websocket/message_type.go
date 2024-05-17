@@ -3,8 +3,10 @@ package websocket
 var (
 	// 心跳
 	HeartBeat = 1000
-	// 服务控制
-	ServiceControl = 1001
+	// 主要服务控制
+	MainServiceControl = 1001
+	// 主要服务控制返回
+	MainServiceControlReturn = 1002
 )
 
 type MessageType struct {

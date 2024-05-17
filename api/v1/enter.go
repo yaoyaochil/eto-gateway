@@ -2,6 +2,7 @@ package v1
 
 import (
 	"gateway/api/v1/d_taiwan"
+	gamecontrol "gateway/api/v1/game_control"
 	"gateway/api/v1/system"
 	"gateway/api/v1/taiwan_billing"
 	"gateway/api/v1/taiwan_cain"
@@ -16,6 +17,7 @@ type ApiGroup struct {
 	TaiwanCainApiGroup    taiwan_cain.ApiGroup     // taiwan_cain 模块
 	TaiwanCain2NDApiGroup taiwan_cain_2nd.ApiGroup // taiwan_cain_2nd 模块
 	WebsocketApiGroup     websocket.ApiGroup       // websocket 模块
+	GameControlApiGroup   gamecontrol.ApiGroup     // game_control 模块
 }
 
 var ApiGroupApp = new(ApiGroup)
