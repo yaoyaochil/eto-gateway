@@ -54,6 +54,7 @@ func Routers() *gin.Engine {
 		taiwan_cain_router.CharacInfoRouter.InitCharacInfoRouter(PublicGroup)                 // 注册游戏角色相关路由
 		taiwan_cain_2nd_router.EmailRouter.InitEmailRouter(PublicGroup)                       // 注册游戏第二版相关路由 邮件
 		gamecontrol_router.MainServiceControlRouter.InitMainServiceControlRouter(PublicGroup) // 注册游戏服务端主服务控制相关路由
+		gamecontrol_router.ChannelRouter.InitChannelRouter(PublicGroup)                       // 注册游戏频道相关路由
 	}
 	{
 		// 需要鉴权的路由
