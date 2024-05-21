@@ -1,7 +1,6 @@
 package websocket
 
 import (
-	"fmt"
 	"net/http"
 	"sync"
 	"time"
@@ -68,12 +67,8 @@ func (s *ServiceControlApi) UpgradeServiceControlApi(c *gin.Context) {
 		if err != nil {
 			break
 		}
-
 		// 更新心跳时间
 		s.Heartbeat(conn)
-
-		fmt.Println(string(msg))
-
 		s.BroadcastMessage(msg, conn)
 	}
 }
@@ -87,7 +82,6 @@ func (s *ServiceControlApi) BroadcastMessage(message []byte, sender *websocket.C
 		if client != sender {
 			err := client.WriteMessage(websocket.TextMessage, message)
 			if err != nil {
-				fmt.Println("write error:", err)
 				client.Close()
 				delete(s.Clients, client)
 			}

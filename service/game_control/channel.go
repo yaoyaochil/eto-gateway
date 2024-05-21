@@ -10,7 +10,6 @@ import (
 	"path/filepath"
 	"strings"
 	templateUtil "text/template"
-	"time"
 
 	"github.com/gorilla/websocket"
 )
@@ -340,7 +339,7 @@ func (cs *ChannelService) GetChannelStatusByGCNos(gcNos []int) ([]ChannelStatus,
 	for _, gcNo := range gcNos {
 		status, err := cs.GetChannelStatusByGCNo(gcNo)
 		if err != nil {
-			return nil, err
+			return []ChannelStatus{}, err
 		}
 		statuses = append(statuses, ChannelStatus{GCNo: gcNo, IsRunning: status})
 	}
@@ -373,36 +372,72 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, conn *websocket.C
 	stdoutReader := bufio.NewReader(stdout)
 	stderrReader := bufio.NewReader(stderr)
 
-	for {
-		select {
-		case <-time.After(1 * time.Second):
-			for {
-				line, err := stdoutReader.ReadString('\n')
-				if err != nil {
-					break
-				}
-				if err := conn.WriteMessage(websocket.TextMessage, []byte(line)); err != nil {
-					log.Println("Error writing message:", err)
-					return
-				}
-			}
+	// 创建一个关闭信号通道
+	done := make(chan struct{})
 
-			for {
-				line, err := stderrReader.ReadString('\n')
-				if err != nil {
-					break
-				}
-				if err := conn.WriteMessage(websocket.TextMessage, []byte(line)); err != nil {
-					log.Println("Error writing message:", err)
-					return
-				}
-			}
-
-			// 检查连接是否已关闭
-			if _, _, err := conn.NextReader(); err != nil {
-				log.Println("Connection closed by client")
+	// 启动一个 goroutine 监控连接状态
+	go func() {
+		for {
+			_, _, err := conn.NextReader()
+			if err != nil {
+				log.Println("WebSocket connection closed")
+				cmd.Process.Kill()
 				return
 			}
+		}
+	}()
+
+	// 处理标准输出
+	go func() {
+		for {
+			select {
+			case <-done:
+				return
+			default:
+				line, err := stdoutReader.ReadString('\n')
+				if err != nil {
+
+					//
+
+					return
+				}
+				if err := conn.WriteMessage(websocket.TextMessage, []byte(line)); err != nil {
+					log.Println("Error writing message:", err)
+					return
+				}
+			}
+		}
+	}()
+
+	// 处理标准错误
+	go func() {
+		for {
+			select {
+			case <-done:
+				return
+			default:
+				line, err := stderrReader.ReadString('\n')
+				if err != nil {
+					// 错误就关闭连接
+					conn.Close()
+					return
+				}
+				if err := conn.WriteMessage(websocket.TextMessage, []byte(line)); err != nil {
+					log.Println("Error writing message:", err)
+					conn.Close()
+					return
+				}
+			}
+		}
+	}()
+
+	// 检查连接是否已关闭
+	for {
+		if _, _, err := conn.NextReader(); err != nil {
+			log.Println("Connection closed by client")
+			close(done) // 发送关闭信号
+			cmd.Process.Kill()
+			return
 		}
 	}
 }

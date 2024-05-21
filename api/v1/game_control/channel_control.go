@@ -166,15 +166,18 @@ func (cl *ChannelListAPI) GetChannelStatusByGCNos(c *gin.Context) {
 }
 
 var upgrader = websocket.Upgrader{
+	// 允许跨域
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
+	// 读取缓冲区大小
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
 }
 
 // 实时获取频道运行日志
 func (cl *ChannelListAPI) GetChannelLogByGCNo(c *gin.Context) {
 	id := c.Query("id")
-	fmt.Println("id:", id)
 	// 如果id为空，返回错误
 	if id == "" {
 		response.FailWithMessage("id不能为空", c)
@@ -187,5 +190,6 @@ func (cl *ChannelListAPI) GetChannelLogByGCNo(c *gin.Context) {
 		return
 	}
 	defer conn.Close()
+
 	channelService.GetChannelRunLog(path, conn)
 }

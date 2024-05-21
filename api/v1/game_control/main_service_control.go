@@ -1,7 +1,6 @@
 package gamecontrol
 
 import (
-	"fmt"
 	"gateway/model/common/response"
 	"gateway/service"
 
@@ -22,7 +21,6 @@ func (msc *MainServiceControlApi) StartMainServices(c *gin.Context) {
 
 func (msc *MainServiceControlApi) StopMainServices(c *gin.Context) {
 	if err := main_service.StopMainService(); err != nil {
-		fmt.Println(err)
 		response.FailWithMessage("停止失败", c)
 		return
 	}
