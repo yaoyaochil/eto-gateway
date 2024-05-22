@@ -279,7 +279,10 @@ func (cs *ChannelService) UpdateConfig(dir string, gcNo int, newConfig template.
 
 // StartChannelServiceByGCNo 根据 GCNo 启动频道服务 pushd /home/neople/game && LD_PRELOAD=./frida.so ./df_game_r siroco11 start; popd
 func (cs *ChannelService) StartChannelServiceByGCNo(gcNo int) error {
-	cmd := exec.Command("/bin/bash", "-c", fmt.Sprintf("pushd /home/neople/game && LD_PRELOAD=./frida.so ./df_game_r siroco%d start; popd", gcNo))
+	// 使用 LD_PRELOAD=./frida.so 劫持 df_game_r 进程
+	// cmd := exec.Command("/bin/bash", "-c", fmt.Sprintf("pushd /home/neople/game && LD_PRELOAD=./frida.so ./df_game_r siroco%d start; popd", gcNo))
+	// 不使用 LD_PRELOAD
+	cmd := exec.Command("/bin/bash", "-c", fmt.Sprintf("pushd /home/neople/game && ./df_game_r siroco%d start; popd", gcNo))
 	err := cmd.Start()
 	if err != nil {
 		return fmt.Errorf("error executing command: %v", err)
@@ -351,31 +354,34 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, conn *websocket.C
 	// 使用tail -n +1 -f logFilePath 实时获取日志
 	cmd := exec.Command("/bin/bash", "-c", fmt.Sprintf("tail -n +1 -f %s", logFilePath))
 
+	// 获取标准输出
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		log.Println("Error getting stdout pipe:", err)
 		return
 	}
 
+	// 获取标准错误
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
 		log.Println("Error getting stderr pipe:", err)
 		return
 	}
 
+	// 启动命令
 	if err := cmd.Start(); err != nil {
 		log.Println("Error starting command:", err)
 		return
 	}
-	defer cmd.Process.Kill()
+	defer cmd.Process.Kill() // 命令执行完毕后杀死进程
 
-	stdoutReader := bufio.NewReader(stdout)
-	stderrReader := bufio.NewReader(stderr)
+	stdoutReader := bufio.NewReader(stdout) // 读取标准输出
+	stderrReader := bufio.NewReader(stderr) // 读取标准错误
 
 	// 创建一个关闭信号通道
 	done := make(chan struct{})
 
-	// 启动一个 goroutine 监控连接状态
+	// 启动一个 goroutine 监控连接状态 如果连接关闭就杀死进程
 	go func() {
 		for {
 			_, _, err := conn.NextReader()
