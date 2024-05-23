@@ -369,7 +369,13 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWr
 		log.Println("Error starting command:", err)
 		return
 	}
-	defer cmd.Process.Kill()
+
+	// 确保进程在函数结束时被正确关闭
+	defer func() {
+		if err := cmd.Process.Kill(); err != nil {
+			log.Println("Error killing process:", err)
+		}
+	}()
 
 	flusher, ok := w.(http.Flusher)
 	if !ok {
@@ -378,31 +384,43 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWr
 	}
 
 	done := make(chan struct{})
-	lines := make(chan string, 100)
+	lines := make(chan string, 100) // 100 行缓冲区
 	var once sync.Once
+	var wg sync.WaitGroup
 
-	readOutput := func(reader *bufio.Reader, lines chan<- string) {
-		defer close(lines)
-		for {
-			line, err := reader.ReadString('\n')
-			if err != nil {
-				continue
+	readOutput := func(reader *bufio.Reader, lines chan<- string, done <-chan struct{}) {
+		defer wg.Done()
+		scanner := bufio.NewScanner(reader)
+		for scanner.Scan() {
+			select {
+			case <-done:
+				return
+			default:
+				lines <- scanner.Text()
 			}
-			lines <- line
+		}
+		if err := scanner.Err(); err != nil {
+			log.Println("Error reading output:", err)
 		}
 	}
 
-	go readOutput(bufio.NewReader(stdout), lines)
-	go readOutput(bufio.NewReader(stderr), lines)
+	wg.Add(2)
+	go readOutput(bufio.NewReader(stdout), lines, done)
+	go readOutput(bufio.NewReader(stderr), lines, done)
 
+	// 监听请求关闭
 	go func() {
 		<-r.Context().Done()
-		once.Do(func() { close(done) })
+		once.Do(func() {
+			close(done)
+		})
 	}()
 
 	for {
 		select {
 		case <-done:
+			// 等待所有 goroutine 完成
+			wg.Wait()
 			return
 		case line := <-lines:
 			if line == "" {
