@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"gateway/source/template"
 	"log"
+	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"sync"
 	templateUtil "text/template"
-
-	"github.com/gorilla/websocket"
 )
 
 type ChannelService struct{}
@@ -350,100 +350,66 @@ func (cs *ChannelService) GetChannelStatusByGCNos(gcNos []int) ([]ChannelStatus,
 }
 
 // GetChannelRunLog 获取频道运行日志
-func (cs *ChannelService) GetChannelRunLog(logFilePath string, conn *websocket.Conn) {
-	// 使用tail -n +1 -f logFilePath 实时获取日志
+func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWriter, r *http.Request) {
 	cmd := exec.Command("/bin/bash", "-c", fmt.Sprintf("tail -n +1 -f %s", logFilePath))
 
-	// 获取标准输出
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		log.Println("Error getting stdout pipe:", err)
 		return
 	}
 
-	// 获取标准错误
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
 		log.Println("Error getting stderr pipe:", err)
 		return
 	}
 
-	// 启动命令
 	if err := cmd.Start(); err != nil {
 		log.Println("Error starting command:", err)
 		return
 	}
-	defer cmd.Process.Kill() // 命令执行完毕后杀死进程
+	defer cmd.Process.Kill()
 
-	stdoutReader := bufio.NewReader(stdout) // 读取标准输出
-	stderrReader := bufio.NewReader(stderr) // 读取标准错误
+	flusher, ok := w.(http.Flusher)
+	if !ok {
+		http.Error(w, "Streaming unsupported!", http.StatusInternalServerError)
+		return
+	}
 
-	// 创建一个关闭信号通道
 	done := make(chan struct{})
+	lines := make(chan string, 100)
+	var once sync.Once
 
-	// 启动一个 goroutine 监控连接状态 如果连接关闭就杀死进程
-	go func() {
+	readOutput := func(reader *bufio.Reader, lines chan<- string) {
+		defer close(lines)
 		for {
-			_, _, err := conn.NextReader()
+			line, err := reader.ReadString('\n')
 			if err != nil {
-				log.Println("WebSocket connection closed")
-				cmd.Process.Kill()
-				return
+				continue
 			}
+			lines <- line
 		}
-	}()
+	}
 
-	// 处理标准输出
+	go readOutput(bufio.NewReader(stdout), lines)
+	go readOutput(bufio.NewReader(stderr), lines)
+
 	go func() {
-		for {
-			select {
-			case <-done:
-				return
-			default:
-				line, err := stdoutReader.ReadString('\n')
-				if err != nil {
-
-					//
-
-					return
-				}
-				if err := conn.WriteMessage(websocket.TextMessage, []byte(line)); err != nil {
-					log.Println("Error writing message:", err)
-					return
-				}
-			}
-		}
+		<-r.Context().Done()
+		once.Do(func() { close(done) })
 	}()
 
-	// 处理标准错误
-	go func() {
-		for {
-			select {
-			case <-done:
-				return
-			default:
-				line, err := stderrReader.ReadString('\n')
-				if err != nil {
-					// 错误就关闭连接
-					conn.Close()
-					return
-				}
-				if err := conn.WriteMessage(websocket.TextMessage, []byte(line)); err != nil {
-					log.Println("Error writing message:", err)
-					conn.Close()
-					return
-				}
-			}
-		}
-	}()
-
-	// 检查连接是否已关闭
 	for {
-		if _, _, err := conn.NextReader(); err != nil {
-			log.Println("Connection closed by client")
-			close(done) // 发送关闭信号
-			cmd.Process.Kill()
+		select {
+		case <-done:
 			return
+		case line := <-lines:
+			if line == "" {
+				return
+			}
+			fmt.Fprintf(w, "data: %s\n\n", strings.TrimSpace(line))
+			flusher.Flush()
 		}
 	}
 }

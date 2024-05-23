@@ -6,10 +6,8 @@ import (
 	"gateway/model/common/response"
 	"gateway/service"
 	"gateway/source/template"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/gorilla/websocket"
 )
 
 type ChannelListAPI struct{}
@@ -165,18 +163,9 @@ func (cl *ChannelListAPI) GetChannelStatusByGCNos(c *gin.Context) {
 	response.OkWithData(status, c)
 }
 
-var upgrader = websocket.Upgrader{
-	// 允许跨域
-	CheckOrigin: func(r *http.Request) bool {
-		return true
-	},
-	// 读取缓冲区大小
-	ReadBufferSize:  1024,
-	WriteBufferSize: 1024,
-}
-
 // 实时获取频道运行日志
 func (cl *ChannelListAPI) GetChannelLogByGCNo(c *gin.Context) {
+
 	id := c.Query("id")
 	// 如果id为空，返回错误
 	if id == "" {
@@ -184,12 +173,12 @@ func (cl *ChannelListAPI) GetChannelLogByGCNo(c *gin.Context) {
 		return
 	}
 	path := fmt.Sprintf("/home/neople/game/log/siroco%s/*.init", id)
-	conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
-	if err != nil {
-		response.FailWithMessage(err.Error(), c)
-		return
-	}
-	defer conn.Close()
 
-	channelService.GetChannelRunLog(path, conn)
+	// 设置响应头
+	c.Writer.Header().Set("Content-Type", "text/event-stream")
+	c.Writer.Header().Set("Cache-Control", "no-cache")
+	c.Writer.Header().Set("Connection", "keep-alive")
+	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+
+	channelService.GetChannelRunLog(path, c.Writer, c.Request)
 }
