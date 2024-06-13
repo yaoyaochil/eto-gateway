@@ -12,6 +12,7 @@ import (
 	"strings"
 	"sync"
 	templateUtil "text/template"
+	"time"
 )
 
 type ChannelService struct{}
@@ -356,17 +357,20 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWr
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		log.Println("Error getting stdout pipe:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
 		log.Println("Error getting stderr pipe:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
 	if err := cmd.Start(); err != nil {
 		log.Println("Error starting command:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
@@ -391,16 +395,19 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWr
 	readOutput := func(reader *bufio.Reader, lines chan<- string, done <-chan struct{}) {
 		defer wg.Done()
 		scanner := bufio.NewScanner(reader)
-		for scanner.Scan() {
+		for {
 			select {
 			case <-done:
+				log.Println("Reader received done signal, exiting")
 				return
 			default:
-				lines <- scanner.Text()
+				if scanner.Scan() {
+					lines <- scanner.Text()
+				} else {
+					// 如果没有新的日志内容，稍作等待
+					time.Sleep(100 * time.Millisecond)
+				}
 			}
-		}
-		if err := scanner.Err(); err != nil {
-			log.Println("Error reading output:", err)
 		}
 	}
 
@@ -411,8 +418,13 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWr
 	// 监听请求关闭
 	go func() {
 		<-r.Context().Done()
+		log.Println("Request closed")
 		once.Do(func() {
 			close(done)
+			if err := cmd.Process.Kill(); err != nil {
+				log.Println("Error killing process:", err)
+			}
+			log.Println("Done closed and process killed")
 		})
 	}()
 
@@ -421,10 +433,11 @@ func (cs *ChannelService) GetChannelRunLog(logFilePath string, w http.ResponseWr
 		case <-done:
 			// 等待所有 goroutine 完成
 			wg.Wait()
+			log.Println("All goroutines finished, exiting main loop")
 			return
 		case line := <-lines:
 			if line == "" {
-				return
+				continue
 			}
 			fmt.Fprintf(w, "data: %s\n\n", strings.TrimSpace(line))
 			flusher.Flush()
