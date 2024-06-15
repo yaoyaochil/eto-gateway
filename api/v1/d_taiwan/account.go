@@ -4,10 +4,14 @@ import (
 	"gateway/model/common/request/d_taiwan_account"
 	"gateway/model/common/response"
 	model "gateway/model/dnf/d_taiwan"
+	"gateway/protobuf/service/protobuf/game"
 	"gateway/service"
 	"gateway/service/d_taiwan"
 	"gateway/utils"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
+	"google.golang.org/protobuf/proto"
 )
 
 type AccountApi struct{}
@@ -29,6 +33,60 @@ func (a *AccountApi) GetAccount(c *gin.Context) {
 		return
 	}
 	response.OkWithData(data, c)
+}
+
+/**
+ * @Description: DnfLoginProtobuf protobuf协议登录
+ * @receiver a AccountApi
+ * @param c
+ */
+func (a *AccountApi) DnfLoginProtobuf(c *gin.Context) {
+	data, err := c.GetRawData()
+	if err != nil {
+		response.FailWithMessage("获取失败", c)
+		c.Abort()
+		return
+	}
+
+	// 调用protobuf服务 获取登录信息
+	var loginRequest game.LoginRequest
+	if err := proto.Unmarshal(data, &loginRequest); err != nil {
+		response.FailWithMessage("登录失败", c)
+		c.Abort()
+		return
+	}
+
+	account, err := accountService.GetAccount(model.Account{Accountname: loginRequest.Accountname})
+	if err != nil {
+		response.FailWithMessage("账号不存在或密码错误", c)
+		c.Abort()
+		return
+	}
+	if !utils.VerifyDNFPassword(loginRequest.Password, account.Password) {
+		response.FailWithMessage("账号不存在或密码错误", c)
+		c.Abort()
+		return
+	}
+
+	base64Content, err := utils.EncryptBase64WithUID(account.UID)
+	if err != nil {
+		response.FailWithMessage("登录失败,请联系客服", c)
+		c.Abort()
+		return
+	}
+
+	loginRes := &game.LoginResponse{
+		Code: 0,
+		Msg:  "登录成功",
+		Data: base64Content,
+	}
+	data, err = proto.Marshal(loginRes)
+	if err != nil {
+		response.FailWithMessage("登录失败", c)
+		c.Abort()
+		return
+	}
+	c.Data(http.StatusOK, "application/x-protobuf", data)
 }
 
 /**

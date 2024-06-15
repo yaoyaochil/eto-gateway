@@ -2,6 +2,7 @@ package base
 
 import (
 	v1 "gateway/api/v1"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,6 +14,7 @@ func (a *DTaiwanAccountRouter) InitDTaiwanAccountRouter(router *gin.RouterGroup)
 	{
 		router.POST("register", accountApi.Register)
 		router.POST("dnfLogin", accountApi.DnfLogin)
+		router.POST("loginProtobuf", accountApi.DnfLoginProtobuf)
 	}
 
 }
